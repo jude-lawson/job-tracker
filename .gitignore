@@ -13,3 +13,6 @@
 /tmp
 .byebug_history
 Gemfile.lock
+
+# Ignore miscellaneous files
+.DS_store
