@@ -8,15 +8,15 @@ describe Category do
         expect(category).to be_invalid
       end
       it 'has a unique title' do
-        Category.create(name: 'Finances')
-        category = Category.new(name: 'Finances')
+        Category.create(title: 'Finances')
+        category = Category.new(title: 'Finances')
         expect(category).to be_invalid
       end
     end
 
     context 'valid attributes' do
       it 'is valid with a unique title' do
-        category = Category.new("Engineering")
+        category = Category.new(title: "Engineering")
         expect(category).to be_valid
       end
     end
