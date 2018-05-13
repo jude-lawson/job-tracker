@@ -16,3 +16,4 @@ Gemfile.lock
 
 # Ignore miscellaneous files
 .DS_store
+coverage
