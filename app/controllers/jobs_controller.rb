@@ -8,6 +8,7 @@ class JobsController < ApplicationController
     @company = Company.find(params[:company_id])
     @job = Job.new()
     @categories = Category.all
+    @category_options = @categories.map(&:title).zip(@categories.map(&:id)) 
   end
 
   def create
