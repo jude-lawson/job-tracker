@@ -3,12 +3,17 @@ require 'rails_helper'
 describe "User creates a new job" do
   scenario "a user can create a new job" do
     company = Company.create!(name: "ESPN")
+    category = Category.create!(title: 'Web Development')
     visit new_company_job_path(company)
+
+    save_and_open_page
+    # Left off here trying to find out what the select option was creating on the page in new.html.erb
 
     fill_in "job[title]", with: "Developer"
     fill_in "job[description]", with: "So fun!"
     fill_in "job[level_of_interest]", with: 80
     fill_in "job[city]", with: "Denver"
+    select 'Web Development', from: 'Category'
 
     click_button "Create"
 

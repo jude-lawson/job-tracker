@@ -11,5 +11,8 @@
   <%= f.label :city %>
   <%= f.text_field :city %>
 
+  <%= f.label :category %>
+  <%= f.select(:category_id, options_for_select(@category_options)) %>
+
   <%= f.submit %>
 <% end %>
