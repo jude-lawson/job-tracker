@@ -28,5 +28,9 @@ describe Company do
       company = Company.new(name: "Dropbox")
       expect(company).to respond_to(:jobs)
     end
+    it 'belongs to a city' do
+      company = Company.new(name: "Spotify")
+      expect(company).to respond_to(:city)
+    end
   end
 end

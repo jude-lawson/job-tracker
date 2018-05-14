@@ -3,10 +3,11 @@ require 'rails_helper'
 describe City do
   describe 'validations' do
     context 'invalid attributes' do
-      it 'is invalid without a title'
+      it 'is invalid without a title' do
       city = City.create()
       expect(city).to be_invalid
     end
+  end 
       it 'is invalid with a duplicate name' do
         city_1 = City.create(title: "McAllen")
         city_2 = City.new(title: "McAllen")
