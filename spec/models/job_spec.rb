@@ -21,9 +21,10 @@ describe Job do
 
     context "valid attributes" do
       it "is valid with a title, level of interest, and company" do
-        company = Company.create!(name: 'Turing')
+        city = City.create(title: 'Denver')
+        company = Company.create!(name: 'Turing', city_id: city.id)
         category = Category.create!(title: 'Education')
-        job = Job.new(title: "Developer", level_of_interest: 40, city: "Denver", company: company, category_id: category.id)
+        job = Job.new(title: "Developer", level_of_interest: 40, city: city, company: company, category_id: category.id)
         expect(job).to be_valid
       end
     end
