@@ -6,6 +6,8 @@ SimpleCov.start
 
 require 'capybara/rspec'
 Capybara.save_path = './tmp'
+require 'database_cleaner'
+DatabaseCleaner[:active_record].strategy = :truncation
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
