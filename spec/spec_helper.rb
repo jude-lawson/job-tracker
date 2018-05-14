@@ -4,6 +4,9 @@ DatabaseCleaner[:active_record].strategy = :truncation
 require 'simplecov'
 SimpleCov.start
 
+require 'database_cleaner'
+DatabaseCleaner[:active_record].strategy = :truncation
+
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
