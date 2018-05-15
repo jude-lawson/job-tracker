@@ -212,7 +212,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   database_cleaner
   jbuilder (~> 2.5)
-  launchy
+  launchy (~> 2.4, >= 2.4.3)
   listen (>= 3.0.5, < 3.2)
   pg (~> 0.18)
   pry
