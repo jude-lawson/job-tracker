@@ -17,6 +17,6 @@ describe Category do
     end
   end
   describe 'relationships' do
-    it {should have_many(:jobs)}
+    it { should have_many(:jobs) }
   end
 end
