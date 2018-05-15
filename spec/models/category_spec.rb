@@ -7,11 +7,6 @@ describe Category do
         category = Category.new()
         expect(category).to be_invalid
       end
-      it 'has a unique title' do
-        Category.create(title: 'Finances')
-        category = Category.new(title: 'Finances')
-        expect(category).to be_invalid
-      end
     end
 
     context 'valid attributes' do

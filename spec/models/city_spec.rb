@@ -4,23 +4,19 @@ describe City do
   describe 'validations' do
     context 'invalid attributes' do
       it 'is invalid without a title' do
-      city = City.create()
-      expect(city).to be_invalid
-    end
-  end 
-      it 'is invalid with a duplicate name' do
-        city_1 = City.create(title: "McAllen")
-        city_2 = City.new(title: "McAllen")
-        expect(city_2).to be_invalid
+        city = City.create()
+        expect(city).to be_invalid
       end
+    end
     context 'valid attributes' do
-      it 'is valid with a unique title' do
-        city = City.create(title: 'Weslaco')
+      it 'is valid with a title' do
+        city = City.create(name: 'Weslaco')
         expect(city).to be_valid
       end
     end
-    describe 'relationships' do
-      it {should have_many(:companies)}
-    end
+  end
+
+  describe 'relationships' do
+    it { should have_many(:jobs) }
   end
 end
