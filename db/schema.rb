@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180515012648) do
+ActiveRecord::Schema.define(version: 20180515024104) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 20180515012648) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "job_id"
+    t.index ["job_id"], name: "index_comments_on_job_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -47,6 +49,8 @@ ActiveRecord::Schema.define(version: 20180515012648) do
     t.string "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "company_id"
+    t.index ["company_id"], name: "index_contacts_on_company_id"
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -55,6 +59,17 @@ ActiveRecord::Schema.define(version: 20180515012648) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_id"
+    t.bigint "company_id"
+    t.bigint "city_id"
+    t.index ["category_id"], name: "index_jobs_on_category_id"
+    t.index ["city_id"], name: "index_jobs_on_city_id"
+    t.index ["company_id"], name: "index_jobs_on_company_id"
   end
 
+  add_foreign_key "comments", "jobs"
+  add_foreign_key "contacts", "companies"
+  add_foreign_key "jobs", "categories"
+  add_foreign_key "jobs", "cities"
+  add_foreign_key "jobs", "companies"
 end
