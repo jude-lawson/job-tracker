@@ -1,13 +1,17 @@
-Title: <%= @job.title %>
+<h1><%= @job.title.capitalize %> at <%= @job.company.name %></h1>
+<%= link_to "see other #{@job.category.title} jobs", category_jobs_path(@job.category) %>
+
+<p>Title: <%= @job.title %></p>
 <br>
 
-Description: <%= @job.description %>
+<p>Description: <%= @job.description %></p>
 <br>
 
-Level of Interest: <%= @job.level_of_interest %>
+<p>Location: <%= @job.city %>
 <br>
 
-City: <%= @job.city %>
+<p>Interest: <%= @job.level_of_interest %></p>
 <br>
 
-Company: <%= link_to @job.company.name, company_path(@job.company) %>
+<p>City: <%= @job.city %></p>
+<br>
