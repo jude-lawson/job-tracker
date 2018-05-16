@@ -53,16 +53,42 @@ RSpec.describe 'Job Pages' do
       expect(page).to_not have_content(@job2.title)
       expect(page).to_not have_content(@job2.description)
     end
+  end
 
   context 'User visits /company/:id/jobs/:id/edit' do
     it 'they should be able to update a job' do
-      visit edit_company_job_path(@company, @job1)
-
+      visit edit_company_job_path(@company1, @job1)
       
+      new_title = 'A New Title'
+      new_description = 'A New Description'
+      new_loi = '19'
+
+      fill_in 'job[title]', with: new_title
+      fill_in 'job[description]', with: new_description
+      fill_in 'job[level_of_interest]', with: new_loi
+      click_button 'Update Job'
+
+      expect(current_path).to eq(company_job_path(@company1, @job1))
+      expect(page).to have_content(new_title)
+      expect(page).to have_content(new_description)
+      expect(page).to have_content(new_loi)
     end
   end
 
+  context 'User visits' do
     it 'they should be able to delete a job' do
+      visit company_jobs_path(@company1)
+
+      within('#job-1') do
+        click_link('Delete')
+      end
+
+      save_and_open_page
+      expect(current_path).to eq(company_jobs_path(@company1))
+      expect(page).to have_content(@company1.name)
+      expect(page).to have_content(@job2.title)
+
+      expect(page).to_not have_content(@job1.title)
     end
   end
 

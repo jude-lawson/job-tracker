@@ -2,22 +2,10 @@ require 'rails_helper'
 
 describe Job do
   describe "validations" do
-    context "invalid attributes" do
-      it "is invalid without a title" do
-        job = Job.new(level_of_interest: 80, description: "Wahoo")
-        expect(job).to be_invalid
-      end
-
-      it "is invalid without a level of interest" do
-        job = Job.new(title: "Developer", description: "Wahoo")
-        expect(job).to be_invalid
-      end
-
-      it "is invalid without a description" do
-        job = Job.new(title: "Developer", level_of_interest: 80)
-        expect(job).to be_invalid
-      end
-    end
+    it { should validate_presence_of(:title) }
+    it { should validate_presence_of(:level_of_interest) }
+    it { should validate_presence_of(:description) }
+    it { should validate_presence_of(:city) }
   end
 
   describe "relationships" do
