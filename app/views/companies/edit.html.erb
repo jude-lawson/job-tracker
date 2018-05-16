@@ -1,3 +1,13 @@
-<h2>Edit <%= @company.name %> here!</h2>
+<head>
+  <link rel="stylesheet" type="text/css" media="screen" href="/edit.css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
 
-<%= render partial: "form" %>
+<body>
+  <header>
+    <h3>Edit <%= @company.name %> here!</h3>
+  </header>
+  <div class='style_block'>
+  </div>
+  <%= render partial: "form" %>
+</body>

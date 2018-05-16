@@ -1,8 +1,14 @@
-<%= form_for @job do |f| %>
+<head>
+  <link rel="stylesheet" type="text/css" media="screen" href="/form.css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
+
+<body>
+  <%= form_for @job do |f| %>
   <%= f.label :category %>
   <%= f.collection_select(:category_id, Category.all, :id, :title) %>
   <%= link_to 'Add a new category', new_category_path %>
-  
+
   <%= f.label :title %>
   <%= f.text_field :title %>
 
@@ -19,3 +25,4 @@
 
   <%= f.submit %>
 <% end %>
+</body>
