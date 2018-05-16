@@ -7,6 +7,12 @@
 <% end %>
 </ul>
 
+<ul>
+<% @company.contacts.each do |contact| %>
+  <li><%= contact.first_name %></li>
+  <li><%= contact.last_name %></li>
+  <% end %>
+</ul>
 
 <h2>Add a Contact:</h2>
 
@@ -19,7 +25,7 @@
     <%= f.text_field :position %>
     <%= f.label :email %>
     <%= f.text_field :email %>
-    <%= f.label :company_name %>
-    <%= f.text_field :company_name %>
+    <%= f.label :company %>
+    <%= f.text_field :company %>
     <%= f.submit %>
   <% end %>

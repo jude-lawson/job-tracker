@@ -18,6 +18,9 @@ describe 'User sees a specific company page' do
     expect(page).to have_field(company.contacts[first_name])
     expect(page).to have_field(company.contacts[last_name])
     expect(page).to have_field(company.contacts[position])
+
     expect(page).to have_field(company.contacts[email])
+
+    expect(page).to have_field(company.contacts[company])
   end
 end
