@@ -17,6 +17,6 @@ describe City do
   end
 
   describe 'relationships' do
-    it { should have_many(:jobs) }
+    xit { should have_many(:jobs) }
   end
 end

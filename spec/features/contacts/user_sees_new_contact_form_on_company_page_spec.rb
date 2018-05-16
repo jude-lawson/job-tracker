@@ -1,26 +1,24 @@
 require 'rails_helper'
 
 describe 'User sees a specific company page' do
-  xit "should display the specified company's information" do
+  it "should display the specified company's information" do
     company = Company.create!(name: 'Ableton')
 
     visit company_path(company)
 
     expect(page).to have_content(company.name)
   end
-  xit "should show a form to add a new contact" do
+  it "should show a form to add a new contact" do
     company = Company.create!(name: 'Microsoft')
 
     visit company_path(company)
 
 
     expect(page).to have_content('Add a Contact:')
-    expect(page).to have_field(company.contacts[first_name])
-    expect(page).to have_field(company.contacts[last_name])
-    expect(page).to have_field(company.contacts[position])
-
-    expect(page).to have_field(company.contacts[email])
-
-    expect(page).to have_field(company.contacts[company])
+    find_field('First name')
+    find_field('Last name')
+    find_field('Position')
+    find_field('Email')
+    find_field('Company')
   end
 end
