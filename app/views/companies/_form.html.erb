@@ -1,6 +1,13 @@
+<head>
+  <link rel="stylesheet" type="text/css" media="screen" href="./main.css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
+
+<div class='form_div'>
 <%= form_for @company do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <h2><%= f.label :name %></h2>
+  <p><%= f.text_field :name %></p>
 
   <%= f.submit %>
 <% end %>
+</div>

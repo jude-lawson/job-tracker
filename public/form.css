@@ -19,7 +19,7 @@ header {
   background-color: lightgrey;
 }
 
-.style_block {
+.form_div {
   border-style: solid;
   border-color: black;
   border-width: 2px;
@@ -34,10 +34,14 @@ header span {
 h2 {
   padding-left: 10px;
   font-family: 'Open Sans', sans-serif;
-  color: red;
 }
+
 h3 {
   padding-left: 10px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+p {
   font-family: 'Open Sans', sans-serif;
 }
 
