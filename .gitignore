@@ -16,3 +16,6 @@ Gemfile.lock
 
 # Ignore miscellaneous files
 .DS_store
+
+# Ignore Simplecov coverage files
+coverage
