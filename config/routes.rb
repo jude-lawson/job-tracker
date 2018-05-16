@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   # end
 
   # resources :jobs, only: [:new, :create]
-  resources :jobs
+  resources :jobs do
+    resources :comments
+  end
   resources :companies, only: [:show] do
     resources :contacts
     #resources :jobs
