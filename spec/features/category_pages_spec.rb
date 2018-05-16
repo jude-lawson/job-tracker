@@ -37,4 +37,23 @@ RSpec.describe 'Category Pages' do
       end
     end
   end
+
+  context 'categories/new' do
+    describe 'A user visits the new categories page' do
+      it 'they should be able to create a new category' do
+        visit new_category_path
+
+        new_title = 'A New Category'
+
+        fill_in 'category[title]', with: new_title
+        click_button 'Create Category'
+
+        expect(current_path).to eq(category_path(Category.last))
+        expect(page).to have_content(new_title)
+      end
+
+      it 'if they enter a duplicate name, they should receive an error message' do
+      end
+    end
+  end
 end
