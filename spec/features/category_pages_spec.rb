@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe do 'Category Pages' do
+RSpec.describe 'Category Pages' do
   before :each do
     @company1 = Company.create!(name: 'ESPN')
     @company2 = Company.create!(name: 'Apple')
@@ -27,6 +27,13 @@ RSpec.describe do 'Category Pages' do
         expect(page).to have_content(@category1.title)
         expect(page).to have_content(@category2.title)
         expect(page).to have_content(@category3.title)
+        expect(page).to have_link("#{@category1.jobs.count} jobs")
+        within("#category-" + @category2.id.to_s) do
+          expect(page).to have_content("0 jobs")
+        end
+        within("#category-" + @category3.id.to_s) do
+          expect(page).to have_content("0 jobs")
+        end
       end
     end
   end

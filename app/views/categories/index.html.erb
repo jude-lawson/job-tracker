@@ -1,0 +1,12 @@
+<h1>Job Categories</h1>
+
+<% @categories.each do |category| %>
+<ul id="category-<%= category.id %>">
+  <li><%= category.title %></li>
+  <% if category.jobs.count != 0 %>
+    <li><%= link_to "#{category.jobs.count} jobs", category_path(category)%></li>
+  <% else %>
+    <li class='category-jobs-number'>0 jobs</li>
+  <% end %>
+</ul>
+<% end %>
