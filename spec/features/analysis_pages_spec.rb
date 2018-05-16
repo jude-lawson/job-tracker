@@ -30,18 +30,18 @@ RSpec.describe 'Analysis Pages' do
 
   context '/jobs?sort=location' do
     describe 'A user visits the jobs page sorting by location' do
-      xit 'they should see a list of jobs sorted by city' do
+      it 'they should see a list of jobs sorted by city' do
         visit '/jobs?sort=location'
 
-        within('#denver-jobs') do
+        within('#Denver-jobs') do
           expect(page).to have_content("#{@job1.title} at #{@company1.name}")
         end
 
-        within('#phoenix-jobs') do
+        within('#Phoenix-jobs') do
           expect(page).to have_content("#{@job2.title} at #{@company2.name}")
         end
 
-        within('#boulder-jobs') do
+        within('#Boulder-jobs') do
           expect(page).to have_content("#{@job3.title} at #{@company3.name}")
           expect(page).to have_content("#{@job4.title} at #{@company3.name}")
         end
@@ -51,12 +51,12 @@ RSpec.describe 'Analysis Pages' do
 
   context '/dashboard' do
     describe 'A user visits the dashboard page' do
-      xit 'they should see a count of jobs for each level of interest' do
+      it 'they should see a count of jobs for each level of interest' do
         visit '/dashboard'
 
         expect(page).to have_content("Interest Level 5: 1")
         expect(page).to have_content("Interest Level 4: 2")
-        expect(page).to have_content("Interest Level 3: 1")
+        expect(page).to have_content("Interest Level 2: 1")
       end
 
       xit 'they should see the top 3 companies ranked by average level of interest' do
