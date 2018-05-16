@@ -16,6 +16,13 @@
 <p>City: <%= @job.city %></p>
 <br>
 
+<ul>
+  <% @job.comments.each do |comment| %>
+  <li><%= comment.title %></li>
+  <li><%= comment.body %></li>
+  <% end %>
+</ul>
+
 <h2>Add a Comment:</h2>
 
    <%= form_for [@job, @comment] do |f| %>

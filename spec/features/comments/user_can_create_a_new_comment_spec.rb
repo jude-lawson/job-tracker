@@ -23,12 +23,12 @@ describe 'User adds a new comment' do
   it 'should redirect ot the specific job page' do
 
     visit job_path(@job1)
-    save_and_open_page
+
     fill_in "comment[title]", with: 'ew'
     fill_in 'comment[body]', with: 'I cant even'
     click_button 'Create Comment'
 
-    expect(current_path).to eq("/companies/jobs/#{job.id}")
+    expect(current_path).to eq("/jobs/#{@job1.id}")
     expect(page).to have_content('ew')
     expect(page).to have_content('I cant even')
     end

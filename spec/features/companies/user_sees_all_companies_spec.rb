@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 describe "User sees all companies" do
-  xit "a user sees all the companies" do
-    city = City.new(title: 'Denver')
+  scenario "a user sees all the companies" do
+    city = City.new(name: 'Denver')
     company = Company.create!(name: "ESPN")
     company_two = Company.create!(name: "Disney")
 
