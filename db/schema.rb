@@ -61,13 +61,16 @@ ActiveRecord::Schema.define(version: 20180515155147) do
     t.datetime "updated_at", null: false
     t.bigint "category_id"
     t.bigint "company_id"
+    t.bigint "city_id"
     t.string "city"
     t.index ["category_id"], name: "index_jobs_on_category_id"
+    t.index ["city_id"], name: "index_jobs_on_city_id"
     t.index ["company_id"], name: "index_jobs_on_company_id"
   end
 
   add_foreign_key "comments", "jobs"
   add_foreign_key "contacts", "companies"
   add_foreign_key "jobs", "categories"
+  add_foreign_key "jobs", "cities"
   add_foreign_key "jobs", "companies"
 end

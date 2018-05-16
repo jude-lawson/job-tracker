@@ -6,7 +6,7 @@ class JobsController < ApplicationController
   def new
     @job = Job.new()
     @categories = Category.all
-    @category_options = @categories.map(&:title).zip(@categories.map(&:id)) 
+    @category_options = @categories.map(&:title).zip(@categories.map(&:id))
   end
 
   def create
@@ -22,6 +22,7 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
+    @comment = @job.comments.new
   end
 
   def edit
