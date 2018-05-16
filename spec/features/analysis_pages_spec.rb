@@ -25,7 +25,7 @@ RSpec.describe 'Analysis Pages' do
     @job4 = @company3.jobs.create!(title: 'Cooler Developer',
                                    description: 'This is also a coolish job',
                                    level_of_interest: '4',
-                                   city: 'Boulder', ctageory_id: @category3.id)
+                                   city: 'Boulder', category_id: @category3.id)
   end
 
   context '/jobs?sort=location' do
