@@ -91,6 +91,24 @@ RSpec.describe 'Category Pages' do
     end
   end
 
+  context '/category/:id/edit' do
+    describe ';A user visits the edit page for a category' do
+      it 'they should be able to edit the category title' do
+        visit edit_category_path(@category1)
+
+        new_title = 'The Newest Title'
+
+        fill_in 'category[title]', with: new_title
+        click_button 'Update Category'
+
+        expect(page).to have_current_path(categories_path)
+        expect(page).to have_content(new_title)
+
+        expect(page).to_not have_content(@category1.title)
+      end
+    end
+  end
+
   context '/jobs?category=:category_title' do
     describe 'A user visits a category\'s page' do
       it 'they should see all of the jobs for that specific category' do
