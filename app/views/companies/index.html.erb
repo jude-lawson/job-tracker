@@ -1,11 +1,21 @@
-<h3>All Companies</h3>
+<head><link rel="stylesheet" type="text/css" media="screen" href="./main.css" />
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"></head>
 
-<ul>
-  <% @companies.each do |company| %>
-  <li class=company_<%= company.id %>>
-    <%= link_to company.name, company_path(company) %>: 
-    <%= link_to "Edit", edit_company_path(company) %>
-    <%= link_to "Delete", company_path(company), method: "delete" %>
-  </li>
-  <% end %>
-</ul>
+<body>
+
+  <header>
+  <h3>All Companies</h3>
+  </header>
+
+
+  <div class='company_block'>
+  <ul>
+    <% @companies.each do |company| %>
+    <li class=company_<%= company.id %>>
+      <%= link_to company.name, company_path(company) %>:
+      <%= link_to "Edit", edit_company_path(company) %>
+      <%= link_to "Delete", company_path(company), method: "delete" %>
+    </li>
+    <% end %>
+  </ul>
+</body>
