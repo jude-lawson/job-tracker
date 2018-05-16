@@ -44,6 +44,19 @@ RSpec.describe 'Category Pages' do
           expect(page).to have_content("#{@category3.jobs.count} jobs")
         end
       end
+
+      it 'they should be able to delete a category' do
+        visit categories_path
+
+        within('#category-' + @category1.id.to_s) do
+          click_link('Delete')
+        end
+        expect(page).to have_current_path(categories_path)
+        expect(page).to have_content(@category2.title)
+        expect(page).to have_content(@category3.title)
+
+        expect(page).to_not have_content(@category1.title)
+      end
     end
   end
 

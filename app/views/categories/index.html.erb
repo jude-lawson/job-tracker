@@ -8,5 +8,6 @@
   <% else %>
     <li class='category-jobs-number'>0 jobs</li>
   <% end %>
+  <li><%= link_to "Delete", category_path(category), method: :delete %></li>
 </ul>
 <% end %>
