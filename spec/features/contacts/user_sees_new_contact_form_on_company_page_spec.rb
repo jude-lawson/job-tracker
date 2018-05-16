@@ -12,8 +12,12 @@ describe 'User sees a specific company page' do
     company = Company.create!(name: 'Microsoft')
 
     visit company_path(company)
-    save_and_open_page
-    expect(page).to have_content('Add a Contact:')
 
+
+    expect(page).to have_content('Add a Contact:')
+    expect(page).to have_field(company.contacts[first_name])
+    expect(page).to have_field(company.contacts[last_name])
+    expect(page).to have_field(company.contacts[position])
+    expect(page).to have_field(company.contacts[email])
   end
 end

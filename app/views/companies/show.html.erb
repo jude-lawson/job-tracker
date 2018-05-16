@@ -1,14 +1,16 @@
 
-<h1>All Jobs for <strong><%= @company.name %></strong></h1>
+<h1>All Jobs for <strong><%= @company.name %></strong></h1> -->
 
-<% @company.jobs.each do |job| %>
-  <ul><%= job.title %></ul>
+<ul>
+  <% @company.jobs.each do |job| %>
+  <li><%= job.title %></li>
 <% end %>
+</ul>
 
 
-<h1>Add a Contact:</h1>
+<h2>Add a Contact:</h2>
 
-  <!-- <%= form_for [@company, @contact] do |f| %>
+   <%= form_for [@company, @contact] do |f| %>
     <%= f.label :first_name %>
     <%= f.text_field :first_name %>
     <%= f.label :last_name %>
@@ -17,5 +19,7 @@
     <%= f.text_field :position %>
     <%= f.label :email %>
     <%= f.text_field :email %>
+    <%= f.label :company_name %>
+    <%= f.text_field :company_name %>
     <%= f.submit %>
-  <% end %> -->
+  <% end %>
