@@ -1,16 +1,32 @@
 <h1>All Jobs</h1>
 
 <ul>
-
 <% if @category %>
   <h2><%= @category.title %> jobs</h2>
-<% end %>
 
-<% @jobs.each do |job| %>
+  <% @jobs.each do |job| %>
     <li id='job-<%= job.id %>'>
     <%= link_to job.title, job_path(job) %> at <%= job.company.name %>
     <%= link_to 'Edit', edit_job_path(job) %>
     <%= link_to 'Delete', job_path(job), method: :delete %>
     </li>
+  <% end %>
+<% elsif @locations %>
+  <% @locations.each do |city, jobs| %>
+    <h2><%= city %></h2>
+    <ul id="<%= city %>-jobs">    
+    <% jobs.each do |job| %>
+      <li><%= job.title %> at <%= job.company.name %></li>
+    <% end %>
+    </ul>
+  <% end %>
+<% else %>
+  <% @jobs.each do |job| %>
+      <li id='job-<%= job.id %>'>
+      <%= link_to job.title, job_path(job) %> at <%= job.company.name %>
+      <%= link_to 'Edit', edit_job_path(job) %>
+      <%= link_to 'Delete', job_path(job), method: :delete %>
+      </li>
+  <% end %>
 <% end %>
 </ul>
