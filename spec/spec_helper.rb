@@ -1,5 +1,14 @@
 require 'database_cleaner'
 DatabaseCleaner[:active_record].strategy = :truncation
+
+require 'simplecov'
+SimpleCov.start
+
+require 'capybara/rspec'
+Capybara.save_path = './tmp'
+require 'database_cleaner'
+DatabaseCleaner[:active_record].strategy = :truncation
+
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
@@ -11,7 +20,7 @@ RSpec.configure do |config|
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
-  # Sets up databse cleaner to clean the database before and after each test
+  # Sets up database cleaner to clean the database before and after each test
   config.before :each do
     DatabaseCleaner.clean
   end

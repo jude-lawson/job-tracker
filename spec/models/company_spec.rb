@@ -7,16 +7,11 @@ describe Company do
         company = Company.new()
         expect(company).to be_invalid
       end
-
-      it "has a unique name" do
-        Company.create(name: "Dropbox")
-        company = Company.new(name: "Dropbox")
-        expect(company).to be_invalid
-      end
     end
 
     context "valid attributes" do
       it "is valid with a name" do
+        city = City.create(name: "Mission")
         company = Company.new(name: "Dropbox")
         expect(company).to be_valid
       end
@@ -25,6 +20,7 @@ describe Company do
 
   describe "relationships" do
     it "has many jobs" do
+      city = City.new(name: 'Los Angeles')
       company = Company.new(name: "Dropbox")
       expect(company).to respond_to(:jobs)
     end
