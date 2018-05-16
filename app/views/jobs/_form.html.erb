@@ -14,6 +14,8 @@
   <%= f.label :description %>
   <%= f.text_field :description %>
 
+  <%= f.label :level_of_interest %>
+  <%= f.select :level_of_interest, [['1 of 5',1], ['2 of 5',2], ['3 of 5',3], ['4 of 5',4], ['5 of 5',5]] %>
 
   <%= f.submit %>
 <% end %>
