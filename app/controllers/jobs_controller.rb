@@ -1,6 +1,15 @@
 class JobsController < ApplicationController
   def index
-    @jobs = Job.all
+    if params[:category]
+      @category = Category.find_by(title: params[:category])
+      @jobs = @category.jobs
+    elsif params[:sort]
+      @locations = Job.all.group_by do |job|
+        job.city
+      end
+    else
+      @jobs = Job.all
+    end
   end
 
   def new
@@ -41,6 +50,15 @@ class JobsController < ApplicationController
     @company = @job.company
     Job.destroy(params[:id])
     redirect_to jobs_path
+  end
+
+  def dashboard
+    @jobs_by_interest = Job.all.group_by do |job|
+      job.level_of_interest
+    end
+    # Company.select("companies.*, jobs.*").joins(:jobs)
+    # Left off right here trying the query below
+    # Job.group(:company_id).count
   end
 
   private

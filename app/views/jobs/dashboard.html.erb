@@ -1,0 +1,7 @@
+<h1>Jobs Dashboard</h1>
+<
+<div id="jobs-by-interest">
+  <% @jobs_by_interest.each do |level, job| %>
+    <p>Interest Level <%= level %>: <%= @jobs_by_interest[level].count %></p>
+  <% end  %>
+</div>
