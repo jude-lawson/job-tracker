@@ -1,5 +1,33 @@
-All Jobs for <strong><%= @company.name %></strong>
 
-<% @company.jobs.each do |job| %>
-  <ul><%= job.title %></ul>
+<h1>All Jobs for <strong><%= @company.name %></strong></h1> -->
+
+<ul>
+  <% @company.jobs.each do |job| %>
+  <li><%= job.title %></li>
 <% end %>
+</ul>
+
+<ul>
+<% @company.contacts.each do |contact| %>
+  <li><%= contact.first_name %></li>
+  <li><%= contact.last_name %></li>
+  <li><%= contact.position %></li>
+  <li><%= contact.email %></li>
+  <% end %>
+</ul>
+
+<h2>Add a Contact:</h2>
+
+   <%= form_for [@company, @contact] do |f| %>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+    <%= f.label :position %>
+    <%= f.text_field :position %>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+    <%= f.label :company %>
+    <%= f.text_field :company %>
+    <%= f.submit %>
+  <% end %>

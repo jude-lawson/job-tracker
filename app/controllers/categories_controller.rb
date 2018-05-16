@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+
   def index
     @categories = Category.all
   end
@@ -39,3 +40,4 @@ class CategoriesController < ApplicationController
     params.require(:category).permit(:title)
   end
 end
+
