@@ -1,5 +1,5 @@
 class AddCitiesToJobs < ActiveRecord::Migration[5.1]
   def change
-    add_reference :jobs, :city, foreign_key: true
+    add_column :jobs, :city, :string
   end
 end
