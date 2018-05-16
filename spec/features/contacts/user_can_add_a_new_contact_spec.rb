@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'User adds a new contact' do
-  it 'should redirect to specific company page' do
+  xit 'should redirect to specific company page' do
     company = Company.create!(name: 'Etsy')
     visit company_path(company)
 

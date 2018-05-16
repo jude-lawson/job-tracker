@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe 'User sees a specific job page' do
-  xit 'should display the specific job information' do
+describe 'User visits a specific job page' do
+  it 'should display the specific job information' do
     job = Job.create(title: 'developer', level_of_interest: 78, description: 'build things')
 
     visit company_jobs_path(job)
