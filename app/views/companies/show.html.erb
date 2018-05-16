@@ -1,5 +1,21 @@
-All Jobs for <strong><%= @company.name %></strong>
+
+<h1>All Jobs for <strong><%= @company.name %></strong></h1>
 
 <% @company.jobs.each do |job| %>
   <ul><%= job.title %></ul>
 <% end %>
+
+
+<h1>Add a Contact:</h1>
+
+  <!-- <%= form_for [@company, @contact] do |f| %>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+    <%= f.label :position %>
+    <%= f.text_field :position %>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+    <%= f.submit %>
+  <% end %> -->
